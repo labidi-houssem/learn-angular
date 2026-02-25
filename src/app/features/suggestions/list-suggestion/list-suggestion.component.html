@@ -6,6 +6,9 @@
          placeholder="Rechercher une suggestion"
          [(ngModel)]="searchText"
          class="search-bar"/>
+         <button [routerLink]="['add']" class="btn btn-success">
+          ajouter suggestion
+         </button>
 
   <div *ngFor="let suggestion of filteredSuggestions" class="card">
 
