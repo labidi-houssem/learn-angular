@@ -1,0 +1,39 @@
+.container {
+  padding: 20px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #f4f4f4;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.accepted {
+  background-color: green;
+}
+
+.refused {
+  background-color: red;
+}
+
+.pending {
+  background-color: orange;
+}
+
+.buttons button {
+  margin-right: 10px;
+  margin-top: 10px;
+}

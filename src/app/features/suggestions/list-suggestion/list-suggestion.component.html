@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Liste des suggestions</h2>
+
+  <!-- Two-way binding -->
+  <input type="text"
+         placeholder="Rechercher une suggestion"
+         [(ngModel)]="searchText"
+         class="search-bar"/>
+
+  <div *ngFor="let suggestion of filteredSuggestions" class="card">
+
+    <!-- Interpolation -->
+    <h3>{{ suggestion.title }}</h3>
+    <p><strong>{{ suggestion.category }}</strong> - {{ suggestion.date | date:'dd MMM yyyy' }}</p>
+    <p>{{ suggestion.description }}</p>
+
+    <!-- Status badge -->
+    <span class="badge"
+          [ngClass]="{
+            'accepted': suggestion.status === 'acceptee',
+            'refused': suggestion.status === 'refusee',
+            'pending': suggestion.status === 'en_attente'
+          }">
+      {{ suggestion.status }}
+    </span>
+
+    <!-- Buttons hidden if refused -->
+    <div *ngIf="suggestion.status !== 'refusee'" class="buttons">
+
+      <!-- Event binding -->
+      <button (click)="likeSuggestion(suggestion)">
+        👍 Like {{ suggestion.nbLikes }}
+      </button>
+
+      <button (click)="addToFavorites(suggestion)">
+        ❤️ Ajouter aux favoris
+      </button>
+      <button [routerLink]="['detail', suggestion.id]" >
+        🙂​ details
+      </button>
+    </div>
+
+  </div>
+</div>

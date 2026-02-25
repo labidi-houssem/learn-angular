@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h1 class="page-title">{{ title }}</h1>
+  <p class="subtitle">Discover our available products</p>
+
+  <div class="products-grid">
+    <div *ngFor="let product of products" class="product-card">
+
+      <h3 class="product-name">{{ product.name }}</h3>
+
+      <p class="product-category">
+        <span>Category:</span> {{ product.category }}
+      </p>
+
+      <p class="product-price">
+        {{ product.price }} TND
+      </p>
+
+      <p class="product-quantity">
+        <span>Quantity:</span> {{ product.quantity }}
+      </p>
+
+      <p 
+        class="product-status"
+        [ngClass]="{
+          'available': product.status === 'Available',
+          'out': product.status !== 'Available'
+        }">
+        {{ product.status }}
+      </p>
+
+      
+      <input type="button" class="btn-buy" (click)="buy(product.id)" value="Buy" [disabled]="product.quantity === 0">
+    </div>
+  </div>
+
+</div>
+<input type="submit" (click)="show()">

@@ -1,0 +1,75 @@
+<h1>Form Group</h1>
+
+<form [formGroup]="formUser">
+
+  <!-- Username -->
+  <label for="username">Username</label>
+  <input id="username"
+         class="form-control"
+         type="text"
+         placeholder="enterUserName"
+         formControlName="userName">
+
+  <div *ngIf="formUser.get('userName')?.invalid && formUser.get('userName')?.touched">
+    <p *ngIf="formUser.get('userName')?.hasError('required')">user name required</p>
+    <p *ngIf="formUser.get('userName')?.hasError('minlength')">user name must be at least 3 characters long</p>
+  </div>
+
+  <!-- Password -->
+  <label for="password">Password</label>
+  <input id="password"
+         class="form-control"
+         type="password"
+         placeholder="enterPassword"
+         formControlName="password">
+
+  <div *ngIf="formUser.get('password')?.invalid && formUser.get('password')?.touched">
+    <p *ngIf="formUser.get('password')?.hasError('required')">password required</p>
+    <p *ngIf="formUser.get('password')?.hasError('minlength')">password must be at least 6 characters long</p>
+  </div>
+
+  <!-- Email -->
+  <label for="email">Email</label>
+  <input id="email"
+         class="form-control"
+         type="email"
+         placeholder="enterEmail"
+         formControlName="email">
+
+  <div *ngIf="formUser.get('email')?.invalid && formUser.get('email')?.touched">
+    <p *ngIf="formUser.get('email')?.hasError('required')">email required</p>
+    <p *ngIf="formUser.get('email')?.hasError('email')">invalid email format</p>
+  </div>
+
+ 
+
+  <!-- Telephone -->
+  <label for="telephone">Telephone</label>
+  <input id="telephone"
+         class="form-control"
+         type="text"
+         placeholder="enterTelephone"
+         formControlName="telephone">
+
+  <div *ngIf="formUser.get('telephone')?.invalid && formUser.get('telephone')?.touched">
+    <p *ngIf="formUser.get('telephone')?.hasError('required')">telephone required</p>
+    <p *ngIf="formUser.get('telephone')?.hasError('pattern')">invalid telephone format</p>
+  </div>
+
+  <!-- CIN -->
+  <label for="cin">CIN</label>
+  <input id="cin"
+         class="form-control"
+         type="text"
+         placeholder="enterCIN"
+         formControlName="cin">
+
+  <div *ngIf="formUser.get('cin')?.invalid && formUser.get('cin')?.touched">
+    <p *ngIf="formUser.get('cin')?.hasError('required')">CIN required</p>
+    <p *ngIf="formUser.get('cin')?.hasError('pattern')">invalid CIN format</p>
+  </div>
+
+  <!-- Button -->
+  <button class="btn btn-primary mt-3" [disabled]="formUser.invalid">Save</button>
+
+</form>
